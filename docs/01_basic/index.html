@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmatic Scroll Promises - 01 Basic</title>
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="content">
+      <button type="button" id="scrollButton" class="scroll-button">
+        Click Me
+      </button>
+      <section>
+        <h1>Section 1</h1>
+      </section>
+      <section id="section2">
+        <h1>Section 2</h1>
+      </section>
+    </main>
+
+    <script>
+    const scrollButton = document.querySelector("#scrollButton");
+    const target = document.querySelector("#section2");
+
+    scrollButton.addEventListener("click", async () => {
+      // awaitでスクロールの完了を待つ
+      await window.scrollTo({
+        top: target.offsetTop,
+        behavior: "smooth",
+      });
+      // スクロールが完了したらalertを出す
+      window.alert("scroll end!");
+    });
+    </script>
+  </body>
+</html>

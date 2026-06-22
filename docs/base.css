@@ -1,0 +1,33 @@
+:root {
+  --color-primary: #3223b3;
+  --color-secondary: #7c71f6;
+  --color-primary-light: #ebe9fc;
+  --color-text: #404040;
+  --color-text-muted: #808080;
+  --color-border: #d0d0d0;
+  --color-white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  line-height: 1.5;
+  font-family:
+    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    "Noto Sans JP", sans-serif;
+  color: var(--color-text);
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-white);
+}
+
+button {
+  cursor: pointer;
+}

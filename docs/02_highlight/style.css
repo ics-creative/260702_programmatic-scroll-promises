@@ -1,0 +1,117 @@
+.content {
+  width: min(100%, 960px);
+  padding: 40px 24px 80px;
+}
+
+.toc {
+  padding: 24px 0 56px;
+}
+
+.toc-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.topic-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+  padding-left: 28px;
+  font-size: 18px;
+}
+
+.topic-list li::marker {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.topic-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border 0.2s;
+}
+
+.topic-link:hover {
+  border-color: var(--color-primary);
+}
+
+.article {
+  display: grid;
+  gap: 96px;
+}
+
+.article-section {
+  padding: 60px 0;
+}
+
+.section-title {
+  position: relative;
+  display: inline;
+  color: var(--color-text);
+  font-size: 24px;
+  line-height: 1.25;
+  isolation: isolate;
+}
+
+.section-title::after {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: -4px;
+  background-color: #ffeb3b;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+  width: 100%;
+  height: 6px;
+}
+
+.section-title.is-highlighted::after {
+  animation: title-highlight 0.3s ease-out forwards;
+}
+
+.section-body {
+  display: grid;
+  gap: 24px;
+  max-width: 760px;
+  margin-top: 32px;
+  font-size: 16px;
+}
+
+.section-body p {
+  overflow-wrap: anywhere;
+}
+
+code {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 17px;
+}
+
+@keyframes title-highlight {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (width <= 480px) {
+  .topic-list {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .section-body {
+    font-size: 16px;
+  }
+}

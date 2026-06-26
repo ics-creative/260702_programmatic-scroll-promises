@@ -87,7 +87,6 @@
       currentTitle?.classList.remove(highlightedClass);
 
       const title = section.querySelector(".section-title");
-      title.classList.remove(highlightedClass);
       title.classList.add(highlightedClass);
     };
 
@@ -96,15 +95,11 @@
         event.preventDefault();
 
         const section = document.querySelector(link.hash);
-        if (!section) {
-          return;
-        }
-
         await window.scrollTo({
           top: section.offsetTop,
           behavior: "smooth",
         });
-
+        // スクロール後にハイライト
         highlightTitle(section);
       });
     });

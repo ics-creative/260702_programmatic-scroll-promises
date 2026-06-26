@@ -128,10 +128,7 @@
 
       const title = section.querySelector(".section-title");
       title.classList.remove(highlightedClass);
-      // 同じ見出しを連続クリックしたときもアニメーションを再実行する
-      window.requestAnimationFrame(() => {
-        title.classList.add(highlightedClass);
-      });
+      title.classList.add(highlightedClass);
     };
 
     topicLinks.forEach((link) => {

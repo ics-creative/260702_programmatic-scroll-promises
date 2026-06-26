@@ -17,7 +17,7 @@ button {
 }
 
 button:hover {
-  background: color-mix(var(--color-secondary) 30%, var(--color-white) 70%);
+  background: var(--color-secondary-hover);
 }
 
 section {

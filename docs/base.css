@@ -6,6 +6,14 @@
   --color-text-muted: #808080;
   --color-border: #d0d0d0;
   --color-white: #ffffff;
+  --color-secondary-hover: color-mix(
+    var(--color-secondary) 30%,
+    var(--color-white) 70%
+  );
+  --color-primary-hover: color-mix(
+    var(--color-primary) 80%,
+    var(--color-white) 20%
+  );
 }
 
 *,

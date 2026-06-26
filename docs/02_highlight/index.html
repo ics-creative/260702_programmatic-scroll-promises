@@ -14,11 +14,6 @@
         <ol class="topic-list">
           <li><a href="#overview" class="topic-link"> 概要 / Overview </a></li>
           <li>
-            <a href="#methods" class="topic-link">
-              対応メソッド / Available methods
-            </a>
-          </li>
-          <li>
             <a href="#browsers" class="topic-link">
               対応ブラウザ / Browser support
             </a>
@@ -34,44 +29,13 @@
           <h2 class="section-title">概要 / Overview</h2>
           <div class="section-body">
             <p>
-              Programmatic Scroll Promises
-              は、JavaScriptから開始したスクロールの完了を
-              Promiseとして待てるようにする提案です。スムーススクロールのあとにUIを更新したい場合、
-              スクロール時間を推測するのではなく、完了を待ってから次の処理へ進めます。
+              Programmatic Scroll
+              Promisesを使うと、JavaScriptから開始したスクロールの完了をPromiseとして待てるようなります。スクロール完了後に行いたい処理を実装するときに便利です。
             </p>
             <p>
               Programmatic Scroll Promises let JavaScript wait for a
-              programmatic scroll to finish. When an interface needs to update
-              after smooth scrolling, the code can wait for completion instead
-              of guessing a timeout.
-            </p>
-          </div>
-        </section>
-
-        <section id="methods" class="article-section">
-          <h2 class="section-title">対応メソッド / Available methods</h2>
-          <div class="section-body">
-            <p>
-              主な対象は、<code>window.scrollTo()</code>、<code
-                >window.scrollBy()</code
-              >、
-              <code>Element.scrollTo()</code>、<code
-                >Element.scrollBy()</code
-              >、<code>Element.scrollIntoView()</code>
-              など、スクリプトからスクロールを開始するメソッドです。<code
-                >behavior: "smooth"</code
-              >
-              を指定した場合も、
-              スクロールが終わってから後続処理を実行できます。
-            </p>
-            <p>
-              The proposal applies to methods that start scrolling from script,
-              such as <code>window.scrollTo()</code>,
-              <code>window.scrollBy()</code>, <code>Element.scrollTo()</code>,
-              <code>Element.scrollBy()</code>, and
-              <code>Element.scrollIntoView()</code>. With
-              <code>behavior: "smooth"</code>, follow-up work can run after the
-              scroll reaches its destination.
+              programmatic scroll to finish as a Promise. They are useful when
+              implementing behavior that should run after scrolling completes.
             </p>
           </div>
         </section>
@@ -80,18 +44,12 @@
           <h2 class="section-title">対応ブラウザ / Browser support</h2>
           <div class="section-body">
             <p>
-              このデモは、Programmatic Scroll Promises
-              を試せるブラウザで動作を確認できます。対応している環境では
-              <code>await window.scrollTo()</code>
-              の後にハイライト処理が実行され、
-              未対応の環境ではスクロール完了を厳密には待てません。
+              Programmatic Scroll PromisesはChrome/Edge
+              150以上で使えます。このデモも対応ブラウザで確認してください。
             </p>
             <p>
-              This demo is intended for browsers that can try Programmatic
-              Scroll Promises. In supported environments, the highlight starts
-              after <code>await window.scrollTo()</code> resolves. In
-              unsupported environments, the browser cannot strictly wait for the
-              scroll completion.
+              Programmatic Scroll Promises are available in Chrome and Edge 150
+              or later. Please check this demo in a supported browser.
             </p>
           </div>
         </section>
@@ -100,18 +58,20 @@
           <h2 class="section-title">動機 / Motivation</h2>
           <div class="section-body">
             <p>
-              これまでは、スクロール後に何かを見せたいときに
-              <code>setTimeout()</code>
-              や <code>scroll</code>
-              イベントの監視で完了タイミングを推測する必要がありました。
-              Programmatic Scroll Promises
-              があれば、スクロール完了を処理の境界として扱えます。
+              これまで、スクロール後に何かを見せたいときは<code
+                >setTimeout()</code
+              >や<code
+                >scrollend</code
+              >イベントを監視することでスクロールの完了を判定していました。Programmatic
+              Scroll Promisesがあれば、<code
+                >await</code
+              >で明確に完了を待てるようになります。
             </p>
             <p>
               Previously, code often used <code>setTimeout()</code> or listened
-              to <code>scroll</code> events to guess when a scroll animation had
-              ended. Programmatic Scroll Promises make scroll completion a clear
-              point in the control flow.
+              to the <code>scrollend</code> event to determine when scrolling
+              had ended. Programmatic Scroll Promises make scroll completion a
+              clear thing to wait for with <code>await</code>.
             </p>
           </div>
         </section>

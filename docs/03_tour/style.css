@@ -89,7 +89,7 @@ input {
     box-shadow: 0 0 8px var(--color-secondary);
   }
 
-  & h2 {
+  h2 {
     font-size: 28px;
     line-height: 1.2;
   }
@@ -117,7 +117,7 @@ input {
 }
 
 .search-box {
-  & input {
+  input {
     width: 100%;
     padding: 12px 14px;
     border: 1px solid var(--color-border);
@@ -128,7 +128,7 @@ input {
 .metric-panel {
   align-content: center;
 
-  & h2 {
+  h2 {
     color: var(--color-primary);
     font-size: 48px;
   }
@@ -147,7 +147,7 @@ input {
   border-radius: 8px;
   background-color: var(--color-primary-light);
 
-  & span {
+  span {
     flex: 1;
     min-width: 28px;
     border-radius: 8px 8px 0 0;
@@ -160,7 +160,7 @@ input {
   gap: 12px;
   list-style: none;
 
-  & li {
+  li {
     display: flex;
     justify-content: space-between;
     gap: 16px;
@@ -176,7 +176,7 @@ input {
   border-radius: 8px;
   background-color: var(--color-primary-light);
 
-  & input {
+  input {
     width: 22px;
     height: 22px;
   }
@@ -220,7 +220,7 @@ input {
   background-color: transparent;
   transition: background-color 0.2s;
 
-  & img {
+  img {
     width: 18px;
     height: 18px;
   }

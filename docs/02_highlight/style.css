@@ -8,7 +8,6 @@
 }
 
 .toc-title {
-  font-size: 18px;
   font-weight: bold;
 }
 
@@ -17,7 +16,6 @@
   gap: 10px;
   margin-top: 20px;
   padding-left: 28px;
-  font-size: 18px;
 
   & li::marker {
     color: var(--color-primary);
@@ -52,7 +50,6 @@
 .section-title {
   position: relative;
   display: inline;
-  color: var(--color-text);
   font-size: 24px;
   line-height: 1.25;
   isolation: isolate;
@@ -88,10 +85,6 @@
 
   & p {
     overflow-wrap: anywhere;
-  }
-
-  @media (width <= 480px) {
-    font-size: 16px;
   }
 }
 

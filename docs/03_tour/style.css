@@ -20,7 +20,6 @@ main {
   color: var(--color-primary);
   font-size: 14px;
   font-weight: bold;
-  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -35,11 +34,11 @@ input {
   padding: 8px 18px;
   border-radius: 8px;
   transition: background 0.2s;
-  border: none;
   width: 100%;
 }
 
 .primary-button {
+  border: none;
   color: var(--color-white);
   background-color: var(--color-primary);
 
@@ -188,7 +187,6 @@ input {
   left: 24px;
   bottom: 24px;
   display: grid;
-  grid-template-rows: auto auto auto;
   gap: 16px;
   width: 320px;
   margin: 0;
@@ -204,7 +202,6 @@ input {
   }
 
   @media (width <= 640px) {
-    right: 16px;
     bottom: 16px;
     width: calc(100vw - 32px);
   }
@@ -221,9 +218,7 @@ input {
   border: 0;
   border-radius: 8px;
   background-color: transparent;
-  transition:
-    background-color 0.2s,
-    color 0.2s;
+  transition: background-color 0.2s;
 
   & img {
     width: 18px;
@@ -245,25 +240,11 @@ input {
   gap: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  @media (width <= 640px) {
-    justify-content: stretch;
-
-    & button {
-      flex: 1;
-    }
-  }
 }
 
 @media (width <= 640px) {
   .dashboard {
     gap: 48px;
     padding: 24px 16px 180px;
-  }
-
-  .hero {
-    & h1 {
-      font-size: 32px;
-    }
   }
 }

@@ -42,23 +42,35 @@ input {
 .primary-button {
   color: var(--color-white);
   background-color: var(--color-primary);
+
+  &:disabled {
+    cursor: no-drop;
+    background-color: var(--color-text-muted);
+  }
+
+  @media (any-hover: hover) {
+    &:not(:disabled):hover {
+      background-color: var(--color-primary-hover);
+    }
+  }
 }
 
 .secondary-button {
   border: 1px solid var(--color-primary);
   color: var(--color-primary);
   background-color: var(--color-white);
-}
 
-.primary-button:disabled {
-  cursor: no-drop;
-  background-color: var(--color-text-muted);
-}
+  &:disabled {
+    border: 1px solid var(--color-text-muted);
+    color: var(--color-text-muted);
+    cursor: no-drop;
+  }
 
-.secondary-button:disabled {
-  border: 1px solid var(--color-text-muted);
-  color: var(--color-text-muted);
-  cursor: no-drop;
+  @media (any-hover: hover) {
+    &:not(:disabled):hover {
+      background-color: var(--color-secondary-hover);
+    }
+  }
 }
 
 .panel {
@@ -72,22 +84,31 @@ input {
   transition:
     border-color 0.2s,
     box-shadow 0.2s;
-}
 
-.panel.is-active {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 8px var(--color-secondary);
-}
+  &.is-active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px var(--color-secondary);
+  }
 
-.panel h2 {
-  font-size: 28px;
-  line-height: 1.2;
+  & h2 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  @media (width <= 640px) {
+    min-height: 240px;
+    padding: 24px;
+  }
 }
 
 .search-panel,
 .settings-panel {
   grid-template-columns: 1fr minmax(240px, 360px);
   align-items: center;
+
+  @media (width <= 640px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .search-box,
@@ -96,20 +117,22 @@ input {
   gap: 8px;
 }
 
-.search-box input {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
+.search-box {
+  & input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
 }
 
 .metric-panel {
   align-content: center;
-}
 
-.metric-panel h2 {
-  color: var(--color-primary);
-  font-size: 48px;
+  & h2 {
+    color: var(--color-primary);
+    font-size: 48px;
+  }
 }
 
 .chart-panel {
@@ -124,27 +147,27 @@ input {
   padding: 20px;
   border-radius: 8px;
   background-color: var(--color-primary-light);
-}
 
-.bar-chart span {
-  flex: 1;
-  min-width: 28px;
-  border-radius: 8px 8px 0 0;
-  background-color: var(--color-primary);
+  & span {
+    flex: 1;
+    min-width: 28px;
+    border-radius: 8px 8px 0 0;
+    background-color: var(--color-primary);
+  }
 }
 
 .order-list {
   display: grid;
   gap: 12px;
   list-style: none;
-}
 
-.order-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--color-border);
+  & li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
 }
 
 .switch-row {
@@ -153,11 +176,11 @@ input {
   padding: 18px;
   border-radius: 8px;
   background-color: var(--color-primary-light);
-}
 
-.switch-row input {
-  width: 22px;
-  height: 22px;
+  & input {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 .tour-panel {
@@ -175,10 +198,16 @@ input {
   background-color: var(--color-white);
   box-shadow: 0 18px 48px rgb(0 0 0 / 18%);
   height: 200px;
-}
 
-.tour-panel:not([open]) {
-  display: none;
+  &:not([open]) {
+    display: none;
+  }
+
+  @media (width <= 640px) {
+    right: 16px;
+    bottom: 16px;
+    width: calc(100vw - 32px);
+  }
 }
 
 .close-button {
@@ -195,11 +224,17 @@ input {
   transition:
     background-color 0.2s,
     color 0.2s;
-}
 
-.close-button img {
-  width: 18px;
-  height: 18px;
+  & img {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: var(--color-primary-light);
+    }
+  }
 }
 
 .tour-message {
@@ -210,18 +245,13 @@ input {
   gap: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
 
-@media (any-hover: hover) {
-  .primary-button:not(:disabled):hover {
-    background-color: var(--color-primary-hover);
-  }
+  @media (width <= 640px) {
+    justify-content: stretch;
 
-  .secondary-button:not(:disabled):hover {
-    background-color: var(--color-secondary-hover);
-  }
-  .close-button:hover {
-    background-color: var(--color-primary-light);
+    & button {
+      flex: 1;
+    }
   }
 }
 
@@ -231,31 +261,9 @@ input {
     padding: 24px 16px 180px;
   }
 
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .panel {
-    min-height: 240px;
-    padding: 24px;
-  }
-
-  .search-panel,
-  .settings-panel {
-    grid-template-columns: 1fr;
-  }
-
-  .tour-panel {
-    right: 16px;
-    bottom: 16px;
-    width: calc(100vw - 32px);
-  }
-
-  .tour-actions {
-    justify-content: stretch;
-  }
-
-  .tour-actions button {
-    flex: 1;
+  .hero {
+    & h1 {
+      font-size: 32px;
+    }
   }
 }

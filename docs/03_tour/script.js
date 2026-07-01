@@ -33,16 +33,6 @@ const steps = [
 ];
 
 /**
- * disabled属性をつけ外しする
- * @param {HTMLElement} elm
- * @param {boolean} disabled
- */
-const toggleDisabled = (elm, disabled) =>
-  disabled
-    ? elm.setAttribute("disabled", true)
-    : elm.removeAttribute("disabled");
-
-/**
  * アクティブ状態をクリアする
  */
 const clearActiveTarget = () => {
@@ -63,7 +53,7 @@ const endTour = async () => {
     top: 0,
   });
   // スクロール後にボタンを活性化
-  toggleDisabled(startButton, false);
+  startButton.disabled = false;
 };
 
 /**
@@ -84,7 +74,7 @@ const showStep = async (stepIndex) => {
   progressText.textContent = `Step ${stepIndex + 1} of ${steps.length}`;
   messageText.textContent = step.message;
   // ボタンの状態を更新
-  toggleDisabled(backButton, stepIndex === 0);
+  backButton.disabled = stepIndex === 0;
   nextButton.textContent = stepIndex === steps.length - 1 ? "Finish" : "Next";
 
   // targetを画面中央の位置を計算
@@ -104,7 +94,7 @@ const showStep = async (stepIndex) => {
 };
 
 startButton.addEventListener("click", () => {
-  toggleDisabled(startButton, true);
+  startButton.disabled = true;
   showStep(0);
 });
 
